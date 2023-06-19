@@ -1,0 +1,82 @@
+/*
+########## Starting with the name of almighty ALLAH #######################
+**************** লা ইলাহা ইল্লাল্লাহু মুহাম্মাদুর রাসুলুল্লাহ ***********
+**************** Author:  tarek200 *************************
+**************** Created: 24.05.2023 ***********************
+$$$$$$$$$$ Practice is the only shortcut to improve $$$$$$$$$$$$$$$$$$$$$$$$
+**/
+#include <bits/stdc++.h>
+#define   Tarek           ios::sync_with_stdio(false);cin.tie(0);
+#define   ll              long long int
+#define   ull             unsigned long long int
+#define   ld              long double
+#define   vi              vector<int>
+#define   vll             vector<ll>
+#define   vc              vector<char>
+#define   vs              vector<string>
+#define   test            ll t;cin >> t;while(t--)
+#define   push            push_back
+#define   pop             pop_back
+#define   sz              size()
+#define   ff              first
+#define   ss              second
+#define   YES             cout<<"YES"<<endl;
+#define   NO              cout<<"NO"<<endl;
+#define   exit            return ;
+#define   next            continue;
+#define   B               break;
+#define  checkmate        return 0;
+#define   nl              "\n"
+#define   gcd(a,b)        __gcd(a,b)
+#define   lcm(a,b)        (a/gcd(a,b))*b
+#define   mod             1000000007
+#define   PI              3.14159265358979323846
+#define   all(x)         (x).begin(), (x).end()
+#define   rev(dp)         reverse(dp.begin(), dp.end());
+#define   FOREACH(it, l)  for (auto it = l.begin(); it != l.end(); it++)
+#define   cinv(v)         for(auto &it:v)cin>>it;
+#define   FOR(i,a,b)      for(ll i=a;i<b;i++)
+#define   LOOP(i,a,b)     for(ll j=a;j<b;j++)
+#define   LOOP2(i,a,b)    for(ll k=a;k<=b;k++)
+const long long int N     = (ll) 1e7+1;
+const long long int M     = (ll) 1e9+5;
+using namespace std;
+/*
+It's easy problem but it's takes lots of time ...okk lest solve with my approch
+The probem is asking us to find a value (X) such that the sum of  absolute 
+difference between each of element (a_i)  the 
+array and(X+i) over all indicies i is minimized.
+
+In other hand we need to find the value of X that minimize the sum of [a_i - X - i]
+to each element of a_i..
+Logic Done lest impelement ..............
+
+*/
+void run(){
+    ll n ;
+    cin >> n;
+    vll dp(n);
+    cinv(dp);
+    //Modifay the array by subtracting the index from each element 
+    FOR(i,0,n){
+        dp[i]-=i;
+    }
+    // sort the modifed array
+    sort(all(dp));
+    // now we need to find middle element 
+    ll mid = dp[n/2];
+    // Calculate the minimum summation
+    ll sum =0;
+    FOR(i,0,n){
+        sum +=abs(dp[i]-mid);
+    }
+    cout << sum << nl;
+
+}
+int main(){
+    Tarek
+    //test{
+        run();
+    //}
+    checkmate;
+}
