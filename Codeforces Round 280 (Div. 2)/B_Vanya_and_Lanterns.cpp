@@ -54,20 +54,23 @@ using namespace std;
 void run(){
     ll n,m;
     cin>>n>>m;
-    vector<double> v (n+1);
-    v[0]=0.0;
-    for(ll i=1;i<=n;i++){
-  	    cin>>v[i];
+    vll a(n);
+    FOR(i,0,n){
+  	    cin>>a[i];
     }
-    sort(all(v));
-    double ans=INT_MIN;
-    for(ll i=1;i<=n;i++){
-  	    double mid = (v[i]-v[i-1])/2 ;
-  	    ans = max(ans,mid);
+    sort(all(a));
+    
+    ll totdis  = 0;
+    // total distance 
+    FOR(i,0,n-1){
+  	    if(a[i+1]-a[i] > totdis)
+  	    totdis = a[i+1]-a[i];
     }
-    double x = v[1]-0.0;
-    double y = m-v[n];
-    ans=max(ans,max(x,y));
+    double x = a[0];
+    double mid = (double) totdis /2; // higest distance of two lampost
+    double z = m - a[n-1]; // last index
+    double ans = max(x,mid); 
+    ans=max(z,ans);
     cout << fixed << setprecision(10);
     cout << ans << nl;
   
