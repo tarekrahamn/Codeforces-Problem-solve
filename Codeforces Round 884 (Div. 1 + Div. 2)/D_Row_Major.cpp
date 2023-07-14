@@ -4,7 +4,7 @@
             In the name of Allah, Most Gracious, Most Merciful             
                     লা ইলাহা ইল্লাল্লাহু মুহাম্মাদুর রাসুলুল্লাহ 
                         Author:  tarek200 
-                        Created: 07.07.2023 
+                        Created: 14.07.2023 
                     United International University
                 Practice is the only shortcut to improve  
 */
@@ -51,30 +51,18 @@ const long long int M     = (ll) 1e9+5;
 #define inf                 0x3f3f3f3f // 1,061,109,567
 #define PI                  acos(-1.0)  // 3.1415926535897932
 using namespace std;
-void run()
-{
-   int a;
-   cin >> a;
-   vector<int>dv;
-   for (int i = 1; i * i <= a; i++){
-        if (a % i == 0){
-        dv.push_back(i);
-        if (i * i != a){
-            dv.push_back(a / i);
-        }
-      }
+void run(){
+   ll n;
+   cin >> n;
+   ll curr = 1;
+   while (n % curr == 0){
+      curr++;
    }
-   string an(a, 'a');
-   FOR(i,0,a){
-      for (auto it : dv){
-         if (i + it < a){
-            if (an[i] == an[i + it]){
-               an[i + it]++;
-            }
-         }
-      }
+   FOR(i,0,n){
+      cout << (char)('a'+ (i % curr));
    }
-   cout << an << nl;
+   cout << nl ;
+  
 }
 int main(){
     Tarek
