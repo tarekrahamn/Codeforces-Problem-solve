@@ -57,18 +57,13 @@ int mminv(int a, int b) {int arr[3];extendgcd(a, b, arr);return arr[0];} //for n
 
 void Broken_Heart(int t){
     int  n,k,m;
-    cin >> n >> k;
+    cin >> n >> m;
     //vector<int> a(n); 
-    int ans  =n;
-    if (k >= 2) {
-        auto gcd = [&](int i) {
-            return (n + i) / (i * i);
-        };
-        int sum = 0;
-        fora2(i,2,k)  {
-            sum += gcd(i);
+    int ans  =0;
+    for (int b=1;b<=m;b++) {
+        for (int a=b;a<=n;a+=b) {
+            if ((a+b) % (b*gcd(a, b)) == 0)ans++;
         }
-        ans += sum;
     }
     cout<<ans<<nl; 
 } 
