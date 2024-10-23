@@ -113,23 +113,16 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 //const int dy[]={-1,  1, -2,  2, -2,  2, -1,  1}; // Knights Move
 /*------------------------------------------------*/
 void run(int t) {
-    int n;
-    cin >> n;
-    vector<pair<int,int>>a;
-    fo(i,0,n){
-        int x;
-        cin >> x;
-        a.pb({x,i});
-    } 
-    sort(all(a));
-    vector<int> ans(n);
-    fo(i,0,n) {
-        ans[a[i].second] = n - i; 
+    int n,m,x,y;
+    cin >> n >>m>>x>>y;
+    int ans1=n-m;
+    int ans2=x-y;
+    if((ans2 + ans1)*-1>0){
+        YES
+    }else{
+        NO
     }
-    fo(i,0,n) {
-        cout << ans[i] << " ";
-    }
-    cout << nl;
+   
 }
 int32_t main(){
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);

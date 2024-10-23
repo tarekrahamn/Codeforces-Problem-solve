@@ -112,17 +112,6 @@ void __f (const char* names, Arg1&& arg1, Args&&... args)
 //const int dx[]={-2, -2, -1, -1,  1,  1,  2,  2};  // Knights Move
 //const int dy[]={-1,  1, -2,  2, -2,  2, -1,  1}; // Knights Move
 /*------------------------------------------------*/
-bool isPalindrome(string s) {
-    int left = 0, right = s.length() - 1;
-    while (left < right) {
-        if (s[left] != s[right]){
-            return false;
-        }
-        left++;
-        right--;
-    }
-    return true;
-}
 string makePal(string s) {
     int n = s.length();
     string result = s;
@@ -140,42 +129,35 @@ void run(int t) {
     cin >> n;
     string s;
     cin >> s;
-    int cnt = 0;
-
+    int c = 0;
     fo(i,0,n/2) {
         if (s[i] != s[n - 1 - i]) {
-            cnt++;
+            c++;
         }
     }
     string zeros = "";
-    int duplicate = cnt;
-    while (cnt--) {
+    int dup = c;
+    while (c--) {
         zeros += '0';
     }
     string result = zeros;
-    if (n==1) {
-        cout << 11 << nl;
-        return;
-    }
     if (n % 2) {
-        int x = n + 1 - 2 * duplicate;
-        while(x--){
-        result.append(x, '1');
-    }
+        int p = n + 1 - 2 * dup;
+        while (p--) {
+            result += '1';
+        }
         result += zeros;
     } else {
-        int x = n + 1 - 2 * duplicate;
-        x /= 2;
-        while(x--){
-        result.append(x, '1');
-        result.append(x, '0');
+        int p = n + 1 - 2 * dup;
+        p /= 2;
+        while (p--) {
+            result += "10";
         }
         result += '1';
         result += zeros;
     }
-    string ans = makePal(result);
-
-    cout <<ans << nl;
+    string palindromeResult = makePal(result);
+    cout << palindromeResult <<nl;
 }
 
 int32_t main(){

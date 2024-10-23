@@ -118,10 +118,12 @@ void __f (const char* names, Arg1&& arg1, Args&&... args){
 bool poss(ll mid,vector<ll>&arr,int k){
     ll sum = 0;
     fo(i,0,arr.sz){
+        dbug(i,arr[i],mid);
         if(mid<arr[i]){
             continue;
         }
         sum+=mid-arr[i];
+        dbug(i,sum);
     }
     return sum<=k;
 }
@@ -138,6 +140,7 @@ void run(int t){
     while(l<=r){
         ll mid = (l+r) >> 1;
         if(poss(mid,arr,k)){
+            //dbug(mid);
             ans=mid;
             l=mid+1;
         }else{
